@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="site">
+        <div class="clock__wrapper">
+            <div class="clock">
+                <div class="pointer pointer__hours"></div>
+                <div class="pointer pointer__minutes"></div>
+                <div class="pointer pointer__seconds"></div>
+            </div>
+        </div>
+        <form id="hour-form">
+            <label for="seconds-input">
+                <span>Starting second:</span>
+                <input type="number" id="seconds-input">
+            </label>
+            <label for="minutes-input">
+                <span>Starting minute:</span>
+                <input type="number" id="minutes-input">
+            </label>
+            <label for="hours-input">
+                <span>Starting hour:</span>
+                <input type="number" id="hours-input">
+            </label>
+            <button type="submit">Start</button>
+        </form>
+        <button type="button" id="start-local-time">Start at your pc time</button>
+    </div>
+</body>
+</html>
