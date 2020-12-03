@@ -1,20 +1,6 @@
-const setSecondsPointer = (second:number) => {
-  const pointer: HTMLElement = document.querySelector('.pointer__seconds');
+const setPointer = (second:number, querySelector:string) => {
+  const pointer: HTMLElement = document.querySelector(querySelector);
   const degree:number = second * 6;
-
-  pointer.style.transform = `translate(-50%, -100%) rotate(${degree}deg)`;
-}
-
-const setMinutesPointer = (minute:number) => {
-  const pointer: HTMLElement = document.querySelector('.pointer__minutes');
-  const degree:number = minute * 6;
-
-  pointer.style.transform = `translate(-50%, -100%) rotate(${degree}deg)`;
-}
-
-const setHoursPointer = (hour:number) => {
-  const pointer: HTMLElement = document.querySelector('.pointer__hours');
-  const degree:number = hour * 30;
 
   pointer.style.transform = `translate(-50%, -100%) rotate(${degree}deg)`;
 }
@@ -30,9 +16,9 @@ const startClock = (startSeconds:number, startMinutes:number, startHours:number)
     clearInterval(intervalId);
   }
 
-  setSecondsPointer(second);
-  setMinutesPointer(minute);
-  setHoursPointer(hour);
+  setPointer(second, '.pointer__seconds');
+  setPointer(minute, '.pointer__minutes');
+  setPointer(hour, '.pointer__hours');
 
   intervalId = setInterval(() => {
     if (second === 59) {
@@ -44,15 +30,15 @@ const startClock = (startSeconds:number, startMinutes:number, startHours:number)
         } else {
           hour += 1;
         }
-        setHoursPointer(hour);
+        setPointer(hour, '.pointer__hours');
       } else {
         minute += 1;
       }
-      setMinutesPointer(minute);
+      setPointer(minute, '.pointer__minutes');
     } else {
       second += 1;
     }
-    setSecondsPointer(second);
+    setPointer(second, '.pointer__seconds');
   }, 1000)
 }
 
